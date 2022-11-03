@@ -31,7 +31,7 @@ function onSubmit(e){
         userList.appendChild(li);
         
         localStorage.setItem('name',nameInput.value);
-        localStorage.removeItem('name');
+        //localStorage.removeItem('name');
 
         /*
         even if we delete

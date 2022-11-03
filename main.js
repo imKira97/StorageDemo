@@ -23,26 +23,41 @@ function onSubmit(e){
     
         // Add text node with input values
         li.appendChild(document.createTextNode(`${nameInput.value}: ${emailInput.value}`));
-    
-        // Add HTML
-        // li.innerHTML = `<strong>${nameInput.value}</strong>e: ${emailInput.value}`;
-    
         // Append to ul
         userList.appendChild(li);
-        
-        localStorage.setItem('name',nameInput.value);
-        //localStorage.removeItem('name');
 
-        /*
-        even if we delete
-        localStorage.setItem('name',nameInput.value);
-        the value will be present in localstorage even though page refresh
+        // localStorage.setItem('name',nameInput.value);
+        // //localStorage.removeItem('name');
 
-        */
+        // /*
+        // even if we delete
+        // localStorage.setItem('name',nameInput.value);
+        // the value will be present in localstorage even though page refresh
 
-        console.log(localStorage.getItem('name'));
+        // */
+
+        // console.log(localStorage.getItem('name'));
 
 //we will get if nothing is here in localStorage
+         //creating object literal to store user details
+         let myObj={
+            name: nameInput.value,
+            email: emailInput.value,
+
+        };
+        /*
+        In localStorage we cannot store the object hence we will convert this object into string
+        */
+       let myObjSerialized=JSON.stringify(myObj);
+       localStorage.setItem('name',myObjSerialized);
+       console.log(localStorage);
+
+       
+    //    //deserialized converting string to object
+    //    let myObjDeserialized=JSON.parse(localStorage.getItem('myObj'));
+    //    console.log(myObjDeserialized);
+    //    console.log(myObjDeserialized.name);
+
 
         
     
